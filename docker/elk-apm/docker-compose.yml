@@ -1,0 +1,90 @@
+version: "3.2"
+
+services:
+
+  haproxy:
+    image: haproxy:latest
+    volumes:
+      - type: bind
+        source: ./ssl.pem
+        target: /etc/haproxy/certs/haproxy.pem
+        read_only: true
+      - type: bind
+        source: ./config/haproxy.cfg
+        target: /usr/local/etc/haproxy/haproxy.cfg
+        read_only: true
+    ports:
+      - 9200:9200
+      - 5601:5601
+      - 8200:8200
+      - 1337:1337
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_healthy
+      apm-server:
+        condition: service_healthy
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+    volumes:
+      - type: bind
+        source: ./config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        read_only: true
+      - type: volume
+        source: elasticsearch
+        target: /usr/share/elasticsearch/data
+    environment:
+      - ES_JAVA_OPTS=-XX:UseAVX=2 -Xmx1g -Xms1g
+      - ELASTIC_PASSWORD=techjam
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+    healthcheck:
+      interval: 20s
+      retries: 10
+      test: curl -s http://localhost:9200/_cluster/health | grep -vq '"status":"red"'
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.10.0
+    volumes:
+      - type: bind
+        source: ./config/kibana.yml
+        target: /usr/share/kibana/config/kibana.yml
+        read_only: true
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    depends_on:
+        elasticsearch:
+          condition: service_healthy
+    healthcheck:
+      interval: 10s
+      retries: 20
+      test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:5601/api/status
+
+  apm-server:
+    image: docker.elastic.co/apm/apm-server:7.10.0
+    volumes:
+      - type: bind
+        source: ./config/apm.yml
+        target: /usr/share/apm-server/apm-server.yml
+        read_only: true
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_healthy
+    cap_add: [ "CHOWN", "DAC_OVERRIDE", "SETGID", "SETUID" ]
+    cap_drop: [ "ALL" ]
+    command: apm-server -e
+    healthcheck:
+      interval: 10s
+      retries: 12
+      test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:8200/
+
+volumes:
+  elasticsearch:
