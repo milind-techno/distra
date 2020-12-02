@@ -17,6 +17,7 @@ services:
       - 9200:9200
       - 5601:5601
       - 8200:8200
+      - 9411:9411
       - 1337:1337
     depends_on:
       elasticsearch:
@@ -65,6 +66,23 @@ services:
       interval: 10s
       retries: 20
       test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:5601/api/status
+
+  zipkin:
+    image: openzipkin/zipkin:latest
+    # Environment settings are defined here https://github.com/openzipkin/zipkin/blob/master/zipkin-server/README.md#environment-variables
+    environment:
+      - STORAGE_TYPE=elasticsearch
+      - ES_HOSTS=http://elasticsearch:9200
+
+  zipkin-dependencies:
+    # https://hub.docker.com/r/openzipkin/zipkin-dependencies/
+    image: openzipkin/zipkin-dependencies:latest
+    entrypoint: crond -f
+    depends_on:
+      - zipkin
+    environment:
+      - STORAGE_TYPE=elasticsearch
+      - ES_HOSTS=http://elasticsearch:9200
 
   apm-server:
     image: docker.elastic.co/apm/apm-server:7.10.0
