@@ -1,0 +1,54 @@
+version: '3.3'
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+    volumes:
+      - type: bind
+        source: ./config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
+        read_only: true
+      - type: volume
+        source: elasticsearch
+        target: /usr/share/elasticsearch/data
+    environment:
+      - ES_JAVA_OPTS=-XX:UseAVX=2 -Xmx1g -Xms1g
+      - ELASTIC_PASSWORD=techjam
+    ulimits:
+      memlock:
+        hard: -1
+        soft: -1
+    healthcheck:
+      interval: 20s
+      retries: 10
+      test: curl -s http://localhost:9200/_cluster/health | grep -vq '"status":"red"'
+
+  oap:
+    image: apache/skywalking-oap-server:8.0.1-es7
+    container_name: oap
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    restart: always
+    ports:
+      - 11800:11800
+      - 12800:12800
+    environment:
+      SW_STORAGE: elasticsearch7
+      SW_STORAGE_ES_CLUSTER_NODES: elasticsearch:9200
+
+  ui:
+    image: apache/skywalking-ui:8.0.1
+    container_name: ui
+    depends_on:
+      - oap
+    links:
+      - oap
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      SW_OAP_ADDRESS: oap:12800
+
+volumes:
+  elasticsearch:

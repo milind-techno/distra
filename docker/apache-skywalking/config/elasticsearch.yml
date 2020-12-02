@@ -1,0 +1,6 @@
+---
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+bootstrap.memory_lock: true
+cluster.routing.allocation.disk.threshold_enabled: false
+discovery.type: single-node
