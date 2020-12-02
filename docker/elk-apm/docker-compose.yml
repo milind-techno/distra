@@ -2,31 +2,6 @@ version: "3.2"
 
 services:
 
-#  haproxy:
-#    image: haproxy:latest
-#    volumes:
-#      - type: bind
-#        source: ./ssl.pem
-#        target: /etc/haproxy/certs/haproxy.pem
-#        read_only: true
-#      - type: bind
-#        source: ./config/haproxy.cfg
-#        target: /usr/local/etc/haproxy/haproxy.cfg
-#        read_only: true
-#    ports:
-#      - 9200:9200
-#      - 5601:5601
-#      - 8200:8200
-#      - 9411:9411
-#      - 1337:1337
-#    depends_on:
-#      elasticsearch:
-#        condition: service_healthy
-#      kibana:
-#        condition: service_healthy
-#      apm-server:
-#        condition: service_healthy
-
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
     volumes:
