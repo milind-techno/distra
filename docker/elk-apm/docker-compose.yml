@@ -14,9 +14,7 @@ services:
         target: /usr/local/etc/haproxy/haproxy.cfg
         read_only: true
     ports:
-      - 9200:9200
       - 5601:5601
-      - 8200:8200
       - 1337:1337
     depends_on:
       elasticsearch:
@@ -47,6 +45,8 @@ services:
       interval: 20s
       retries: 10
       test: curl -s http://localhost:9200/_cluster/health | grep -vq '"status":"red"'
+    ports:
+      - 9200:9200  
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.10.0
@@ -80,11 +80,13 @@ services:
         condition: service_healthy
     cap_add: [ "CHOWN", "DAC_OVERRIDE", "SETGID", "SETUID" ]
     cap_drop: [ "ALL" ]
-    command: apm-server -e
+    command: apm-server -e -d "*"
     healthcheck:
       interval: 10s
       retries: 12
       test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:8200/
+    ports:
+      - 8200:8200  
 
 volumes:
   elasticsearch:
