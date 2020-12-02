@@ -2,6 +2,30 @@ version: "3.2"
 
 services:
 
+  haproxy:
+    image: haproxy:latest
+    volumes:
+      - type: bind
+        source: ./ssl.pem
+        target: /etc/haproxy/certs/haproxy.pem
+        read_only: true
+      - type: bind
+        source: ./config/haproxy.cfg
+        target: /usr/local/etc/haproxy/haproxy.cfg
+        read_only: true
+    ports:
+      - 9200:9200
+      - 5601:5601
+      - 8200:8200
+      - 1337:1337
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_healthy
+      apm-server:
+        condition: service_healthy
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
     volumes:
@@ -12,9 +36,6 @@ services:
       - type: volume
         source: elasticsearch
         target: /usr/share/elasticsearch/data
-    ports:
-      - "9200:9200" #http
-      - "9300:9300" #socket
     environment:
       - ES_JAVA_OPTS=-XX:UseAVX=2 -Xmx1g -Xms1g
       - ELASTIC_PASSWORD=techjam
@@ -37,8 +58,6 @@ services:
     environment:
       ELASTICSEARCH_URL: http://elasticsearch:9200
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
-    ports:
-      - "5601:5601"
     depends_on:
         elasticsearch:
           condition: service_healthy
@@ -50,10 +69,10 @@ services:
   apm-server:
     image: docker.elastic.co/apm/apm-server:7.10.0
     volumes:
-    - type: bind
-      source: ./config/apm.yml
-      target: /usr/share/apm-server/apm-server.yml
-      read_only: true
+      - type: bind
+        source: ./config/apm.yml
+        target: /usr/share/apm-server/apm-server.yml
+        read_only: true
     depends_on:
       elasticsearch:
         condition: service_healthy
@@ -61,8 +80,6 @@ services:
         condition: service_healthy
     cap_add: [ "CHOWN", "DAC_OVERRIDE", "SETGID", "SETUID" ]
     cap_drop: [ "ALL" ]
-    ports:
-      - 8200:8200
     command: apm-server -e
     healthcheck:
       interval: 10s
