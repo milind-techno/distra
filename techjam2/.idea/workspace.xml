@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="06829417-567d-469e-9d3e-cccd2b243a4d" name="Default Changelist" comment="">
+      <change beforePath="$GIT_HOME$/techjam/techjam1" beforeDir="false" afterPath="$GIT_HOME$/techjam/techjam1" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="CodeIris Favorites" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$GIT_HOME$/techjam" />
+  </component>
+  <component name="ProjectId" id="1l3kfw2wc3y4s2dqlAhYDsEccli" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="app2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.techjam.app2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.techjam.app2.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="06829417-567d-469e-9d3e-cccd2b243a4d" name="Default Changelist" comment="" />
+      <created>1606833268262</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606833268262</updated>
+      <workItem from="1606833279699" duration="6247000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="304" y="158" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606834072964">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state x="304" y="158" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.943@0.23.1680.943" timestamp="1606834072964" />
+    <state x="538" y="52" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606833523382">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state x="538" y="52" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1680.943@0.23.1680.943" timestamp="1606833523382" />
+    <state width="1638" height="252" key="GridCell.Tab.0.bottom" timestamp="1606865405151">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state width="1638" height="252" key="GridCell.Tab.0.bottom/0.23.1680.943@0.23.1680.943" timestamp="1606865405151" />
+    <state width="1638" height="252" key="GridCell.Tab.0.center" timestamp="1606865405150">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state width="1638" height="252" key="GridCell.Tab.0.center/0.23.1680.943@0.23.1680.943" timestamp="1606865405150" />
+    <state width="1638" height="252" key="GridCell.Tab.0.left" timestamp="1606865405150">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state width="1638" height="252" key="GridCell.Tab.0.left/0.23.1680.943@0.23.1680.943" timestamp="1606865405150" />
+    <state width="1638" height="252" key="GridCell.Tab.0.right" timestamp="1606865405151">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state width="1638" height="252" key="GridCell.Tab.0.right/0.23.1680.943@0.23.1680.943" timestamp="1606865405151" />
+    <state width="1638" height="252" key="GridCell.Tab.1.bottom" timestamp="1606865405153">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state width="1638" height="252" key="GridCell.Tab.1.bottom/0.23.1680.943@0.23.1680.943" timestamp="1606865405153" />
+    <state width="1638" height="252" key="GridCell.Tab.1.center" timestamp="1606865405152">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state width="1638" height="252" key="GridCell.Tab.1.center/0.23.1680.943@0.23.1680.943" timestamp="1606865405152" />
+    <state width="1638" height="252" key="GridCell.Tab.1.left" timestamp="1606865405152">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state width="1638" height="252" key="GridCell.Tab.1.left/0.23.1680.943@0.23.1680.943" timestamp="1606865405152" />
+    <state width="1638" height="252" key="GridCell.Tab.1.right" timestamp="1606865405153">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state width="1638" height="252" key="GridCell.Tab.1.right/0.23.1680.943@0.23.1680.943" timestamp="1606865405153" />
+    <state x="503" y="258" width="673" height="472" key="find.popup" timestamp="1606839642641">
+      <screen x="0" y="23" width="1680" height="943" />
+    </state>
+    <state x="503" y="258" width="673" height="472" key="find.popup/0.23.1680.943@0.23.1680.943" timestamp="1606839642641" />
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="defaultFileLocation" value="file://$GIT_HOME$/techjam" />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
+  </component>
+</project>
